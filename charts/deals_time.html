@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Trials', 'LXML with XPath', 'LXML with CSS', 'Beautiful Soup'],
+          ['10',  .027, .031, .085],
+          ['100', .025, .030, .082],
+          ['500', .025, .030, .085],
+        ]);
+
+        var options = {
+          title: 'Average Run Time',
+          vAxis: {title: 'Trials',  titleTextStyle: {color: 'red'}}
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
